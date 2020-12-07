@@ -14,7 +14,7 @@ $(function() {
         data: newEatState
       }).then(
         function() {
-          console.log("changed sleep to", newSleep);
+          console.log("changed devoured status to", newSleep);
           // Reload the page to get the updated list
           location.reload();
         }
@@ -27,7 +27,7 @@ $(function() {
   
       var newBurger = {
         burger_name: $("#burger_name").val().trim(),
-        devoured: $("[burger_name=devoured]:checked").val().trim()
+        devoured: $("[name=devoured]:checked").val().trim()
       };
   
       // Send the POST request.
@@ -47,7 +47,7 @@ $(function() {
       var id = $(this).data("id");
   
       // Send the DELETE request.
-      $.ajax("/api/burger/" + id, {
+      $.ajax("/api/burgers/" + id, {
         type: "DELETE"
       }).then(
         function() {
